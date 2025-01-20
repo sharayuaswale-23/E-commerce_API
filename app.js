@@ -3,6 +3,7 @@ const app = express();
 const userRoute = require('./api/routes/user');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 
 mongoose.connect('mongodb+srv://Auth:Auth123@auth.yfijm.mongodb.net/?retryWrites=true&w=majority&appName=Auth');
