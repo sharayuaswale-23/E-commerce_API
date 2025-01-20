@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const userRoute = require('./api/routes/user');
@@ -5,8 +6,10 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const { MONGO_URI, PORT } = require('./config');
 
-mongoose.connect('mongodb+srv://Auth:Auth123@auth.yfijm.mongodb.net/?retryWrites=true&w=majority&appName=Auth');
+
+mongoose.connect(MONGO_URI);
 
 mongoose.connection.on('error',err=>{
     console.log('Connection failed');
