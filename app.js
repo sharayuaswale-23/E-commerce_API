@@ -18,6 +18,7 @@ mongoose.connection.on('connected',connected=>{
 })
 
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/user', userRoute);
