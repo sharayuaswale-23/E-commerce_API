@@ -1,6 +1,8 @@
-require('dotenv').config();
+require('dotenv').config()
 const http = require('http');
 const app = require('./app');
+const port = process.env.PORT || 8000;
+
 const server = http.createServer(app);
 
-server.listen(process.env.PORT,console.log("app is running"));
+server.listen(port,()=>{console.log("App are running on localhost:"+port)});
