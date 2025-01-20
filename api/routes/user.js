@@ -82,7 +82,20 @@ router.post('/login',(req,res,next)=>{
                     msg:"Password matching failed"
                 })
               } 
-             
+              if(result){
+                const token = jwt.sign({
+                    email:user[0].email
+                },
+            'this is my dummy text',
+            {
+              expiresIn:"24h"
+            }
+            );
+            res.status(200).json({
+                email:user[0].email,
+                token:token
+            })
+            }
             })
     })
     .catch(err=>{
